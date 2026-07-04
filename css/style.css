@@ -1,11 +1,51 @@
-/* ==========================================
+/* ==========================================================
    JOEL APEX SOLUTIONS
-========================================== */
+   Premium Mobile App & Game Studio
+   Version 1.0
+========================================================== */
+
+/* ==============================
+   GOOGLE FONT
+==============================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==============================
+   VARIABLES
+==============================*/
+
+:root{
+
+    --primary:#1ec8ff;
+    --secondary:#ffd84d;
+
+    --dark:#07111f;
+    --dark2:#101d31;
+    --card:#13243d;
+
+    --text:#ffffff;
+    --text-light:#cfd7e4;
+
+    --gradient:
+        linear-gradient(
+        135deg,
+        #00b4ff,
+        #1d4ed8);
+
+    --radius:22px;
+
+}
+
+/* ==============================
+RESET
+==============================*/
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
+
 }
 
 html{
@@ -16,11 +56,29 @@ html{
 
 body{
 
-    background:#071020;
+    font-family:'Poppins',sans-serif;
 
-    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top right,#0f2e6b 0%,transparent 35%),
+        radial-gradient(circle at left,#123c75 0%,transparent 30%),
+        #07111f;
 
-    color:#ffffff;
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    line-height:1.7;
+
+}
+
+/* ==============================
+GENERAL
+==============================*/
+
+img{
+
+    display:block;
+    max-width:100%;
 
 }
 
@@ -36,50 +94,193 @@ ul{
 
 }
 
-img{
-
-    max-width:100%;
-    display:block;
-
-}
-
 .container{
 
-    width:90%;
-    max-width:1400px;
+    width:92%;
+    max-width:1350px;
     margin:auto;
 
 }
 
-/* ==========================================
-HEADER
-========================================== */
+section{
+
+    padding:110px 0;
+
+}
+
+/* ==============================
+HEADINGS
+==============================*/
+
+h1{
+
+    font-size:72px;
+    line-height:1.05;
+    font-weight:800;
+
+}
+
+h2{
+
+    font-size:48px;
+    font-weight:700;
+
+}
+
+h3{
+
+    font-size:26px;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+}
+
+/* ==============================
+SECTION TITLE
+==============================*/
+
+.section-heading{
+
+    text-align:center;
+    margin-bottom:70px;
+
+}
+
+.section-heading span{
+
+    display:inline-block;
+
+    color:var(--secondary);
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+
+}
+
+.section-heading h2{
+
+    margin-bottom:20px;
+
+}
+
+.section-heading p{
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+/* ==============================
+BUTTONS
+==============================*/
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px 38px;
+
+    border-radius:60px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.btn-primary{
+
+    background:var(--gradient);
+
+    color:white;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,180,255,.35);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,180,255,.45);
+
+}
+
+.btn-secondary{
+
+    border:2px solid rgba(255,255,255,.2);
+
+    color:white;
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:#111;
+
+}
+/* ==========================================================
+   HEADER
+==========================================================*/
 
 .header{
 
     position:fixed;
 
     top:0;
-
     left:0;
 
     width:100%;
 
-    z-index:999;
+    z-index:9999;
 
     padding:18px 0;
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
 
-    background:rgba(7,16,32,.65);
+    background:rgba(7,17,31,.55);
 
     border-bottom:1px solid rgba(255,255,255,.08);
 
+    transition:.35s;
+
 }
 
-/* ==========================================
+.header.scrolled{
+
+    background:rgba(7,17,31,.90);
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
 NAVBAR
-========================================== */
+==========================================================*/
 
 .navbar{
 
@@ -91,29 +292,55 @@ NAVBAR
 
 }
 
-.logo img{
+/* Logo */
 
-    width:300px;
+.logo{
+
+    display:flex;
+
+    align-items:center;
 
 }
 
-/* Menu */
+.logo img{
 
-.nav-links{
+    width:260px;
+
+    transition:.35s;
+
+}
+
+.logo img:hover{
+
+    transform:scale(1.02);
+
+}
+
+/* Navigation */
+
+.nav-menu{
 
     display:flex;
+
+    align-items:center;
 
     gap:45px;
 
 }
 
-.nav-links a{
+.nav-menu li{
 
-    color:#ffffff;
+    position:relative;
+
+}
+
+.nav-menu a{
+
+    color:white;
 
     font-size:17px;
 
-    font-weight:700;
+    font-weight:600;
 
     transition:.3s;
 
@@ -121,64 +348,938 @@ NAVBAR
 
 }
 
-.nav-links a:hover{
+/* Active */
 
-    color:#20D7FF;
+.nav-menu a.active{
+
+    color:var(--secondary);
 
 }
 
-.nav-links .active{
+/* Hover */
 
-    color:#FFD52E;
+.nav-menu a:hover{
+
+    color:var(--primary);
 
 }
 
 /* underline */
 
-.nav-links a::after{
+.nav-menu a::after{
 
     content:"";
 
     position:absolute;
 
-    bottom:-8px;
-
     left:0;
+
+    bottom:-10px;
 
     width:0;
 
     height:3px;
 
-    background:#FFD52E;
+    border-radius:10px;
 
-    transition:.3s;
+    background:var(--secondary);
+
+    transition:.35s;
 
 }
 
-.nav-links a:hover::after{
+.nav-menu a:hover::after{
 
     width:100%;
 
 }
 
-.nav-links .active::after{
+.nav-menu a.active::after{
 
     width:100%;
 
 }
 
-/* Google Play */
+/* ==========================================================
+GOOGLE PLAY
+==========================================================*/
 
-.play-button img{
+.google-play{
 
-    height:60px;
+    display:flex;
+
+    align-items:center;
+
+}
+
+.google-play img{
+
+    height:58px;
+
+    transition:.35s;
+
+}
+
+.google-play img:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+HAMBURGER
+==========================================================*/
+
+.menu-toggle{
+
+    display:none;
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================================
+HERO
+==========================================================*/
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    padding-top:160px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* background glow */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:900px;
+
+    height:900px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(circle,
+
+        rgba(0,183,255,.20),
+
+        transparent 70%);
+
+    right:-250px;
+
+    top:-250px;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(circle,
+
+        rgba(255,216,77,.08),
+
+        transparent 70%);
+
+    left:-180px;
+
+    bottom:-200px;
+
+}
+
+/* Layout */
+
+.hero-container{
+
+    display:grid;
+
+    grid-template-columns:
+
+        1.1fr
+        .9fr;
+
+    align-items:center;
+
+    gap:80px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================================
+LEFT
+==========================================================*/
+
+.hero-tag{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    margin-bottom:25px;
+
+    color:var(--secondary);
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+}
+
+.hero-content h1{
+
+    margin-bottom:25px;
+
+}
+
+.hero-content p{
+
+    font-size:20px;
+
+    max-width:650px;
+
+    margin-bottom:45px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+/* ==========================================================
+   HERO IMAGES
+==========================================================*/
+
+.hero-images{
+
+    position:relative;
+
+    height:700px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+}
+
+/* Phone */
+
+.phone{
+
+    position:absolute;
+
+    width:280px;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    background:#111;
+
+    border:10px solid #222;
+
+    box-shadow:
+
+        0 30px 70px rgba(0,0,0,.45),
+
+        0 0 45px rgba(0,183,255,.18);
+
+    transition:.4s;
+
+}
+
+.phone img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/* Position */
+
+.phone-one{
+
+    left:10px;
+
+    top:120px;
+
+    transform:
+
+        rotate(-12deg);
+
+}
+
+.phone-two{
+
+    z-index:3;
+
+    width:320px;
+
+    top:10px;
+
+}
+
+.phone-three{
+
+    right:0;
+
+    top:150px;
+
+    transform:
+
+        rotate(12deg);
+
+}
+
+/* Hover */
+
+.phone:hover{
+
+    transform:
+
+        translateY(-15px)
+        scale(1.03);
+
+    box-shadow:
+
+        0 45px 90px rgba(0,0,0,.55),
+
+        0 0 80px rgba(0,183,255,.35);
+
+    z-index:20;
+
+}
+
+/* Floating */
+
+.phone-one{
+
+    animation:
+
+        floatLeft 6s ease-in-out infinite;
+
+}
+
+.phone-two{
+
+    animation:
+
+        floatMiddle 5s ease-in-out infinite;
+
+}
+
+.phone-three{
+
+    animation:
+
+        floatRight 7s ease-in-out infinite;
+
+}
+
+/* ==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes floatLeft{
+
+0%{
+
+    transform:
+        translateY(0)
+        rotate(-12deg);
+
+}
+
+50%{
+
+    transform:
+        translateY(-18px)
+        rotate(-10deg);
+
+}
+
+100%{
+
+    transform:
+        translateY(0)
+        rotate(-12deg);
+
+}
+
+}
+
+@keyframes floatMiddle{
+
+0%{
+
+    transform:
+        translateY(0);
+
+}
+
+50%{
+
+    transform:
+        translateY(-25px);
+
+}
+
+100%{
+
+    transform:
+        translateY(0);
+
+}
+
+}
+
+@keyframes floatRight{
+
+0%{
+
+    transform:
+        translateY(0)
+        rotate(12deg);
+
+}
+
+50%{
+
+    transform:
+        translateY(-18px)
+        rotate(10deg);
+
+}
+
+100%{
+
+    transform:
+        translateY(0)
+        rotate(12deg);
+
+}
+
+}
+
+/* ==========================================================
+FEATURED GAMES
+==========================================================*/
+
+.featured-games{
+
+    position:relative;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(255,255,255,.02)
+        );
+
+}
+
+.games-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+.game-card{
+
+    background:
+
+        rgba(255,255,255,.04);
+
+    border:
+
+        1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:40px;
+
+    text-align:center;
+
+    backdrop-filter:blur(12px);
+
+    transition:.4s;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+/* Glow */
+
+.game-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-1px;
+
+    background:
+
+        linear-gradient(
+        135deg,
+
+        rgba(0,183,255,.35),
+
+        transparent,
+
+        rgba(255,216,77,.15));
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.game-card:hover::before{
+
+    opacity:1;
+
+}
+
+.game-card:hover{
+
+    transform:
+
+        translateY(-12px);
+
+}
+
+.game-logo{
+
+    width:130px;
+
+    margin:
+
+        auto
+        auto
+        30px;
+
+}
+
+.game-card h3{
+
+    margin-bottom:18px;
+
+}
+
+.game-card p{
+
+    margin-bottom:35px;
+
+}
+
+.game-button{
+
+    display:inline-block;
+
+    padding:16px 34px;
+
+    border-radius:45px;
+
+    color:white;
+
+    background:
+
+        var(--gradient);
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.game-button:hover{
+
+    transform:
+
+        scale(1.05);
+
+}
+/* ==========================================================
+   WHY US
+==========================================================*/
+
+.why-us{
+
+    padding-top:140px;
+    padding-bottom:140px;
+
+}
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+.feature-card{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    padding:45px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:
+
+        0 30px 60px rgba(0,0,0,.35);
+
+}
+
+.feature-card i{
+
+    font-size:58px;
+
+    color:var(--primary);
+
+    margin-bottom:25px;
+
+}
+
+.feature-card h3{
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================================
+FOOTER
+==========================================================*/
+
+footer{
+
+    background:#050b15;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:90px 0 50px;
+
+}
+
+.footer-content{
+
+    text-align:center;
+
+}
+
+.footer-logo{
+
+    width:260px;
+
+    margin:auto;
+
+    margin-bottom:35px;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    margin:45px 0;
+
+}
+
+.footer-links a{
+
+    color:white;
 
     transition:.3s;
 
 }
 
-.play-button img:hover{
+.footer-links a:hover{
 
-    transform:scale(1.05);
+    color:var(--primary);
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.social-icons a{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:22px;
+
+    transition:.35s;
+
+}
+
+.social-icons a:hover{
+
+    background:var(--gradient);
+
+    transform:translateY(-6px);
+
+}
+
+.copyright{
+
+    opacity:.65;
+
+}
+
+/* ==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media(max-width:1100px){
+
+.hero-container{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.hero-images{
+
+margin-top:80px;
+
+height:600px;
+
+}
+
+.games-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.features{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:850px){
+
+.nav-menu{
+
+display:none;
+
+}
+
+.google-play{
+
+display:none;
+
+}
+
+.menu-toggle{
+
+display:block;
+
+}
+
+.logo img{
+
+width:210px;
+
+}
+
+h1{
+
+font-size:48px;
+
+}
+
+h2{
+
+font-size:36px;
+
+}
+
+.phone{
+
+width:220px;
+
+}
+
+.phone-two{
+
+width:250px;
+
+}
+
+.hero-images{
+
+height:500px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.phone{
+
+position:relative;
+
+left:auto;
+
+right:auto;
+
+top:auto;
+
+transform:none !important;
+
+margin-bottom:25px;
+
+animation:none;
+
+}
+
+.hero-images{
+
+display:flex;
+
+flex-direction:column;
+
+height:auto;
+
+}
+
+.phone-two{
+
+width:230px;
+
+}
+
+.phone-one{
+
+width:210px;
+
+}
+
+.phone-three{
+
+width:210px;
+
+}
+
+.hero{
+
+padding-top:120px;
+
+}
+
+section{
+
+padding:90px 0;
+
+}
 
 }
