@@ -32,8 +32,10 @@
     btn.setAttribute('aria-expanded', 'true');
     mobileNav.setAttribute('aria-hidden', 'false');
     requestAnimationFrame(() => {
-      mobileNav.style.transition = 'opacity 0.25s ease';
-      mobileNav.style.opacity = '1';
+      requestAnimationFrame(() => {
+        mobileNav.style.transition = 'opacity 0.25s ease';
+        mobileNav.style.opacity = '1';
+      });
     });
   };
 
