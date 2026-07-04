@@ -1,25 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Apps | Joel Apex Solutions</title>
-
-    <link rel="stylesheet" href="../css/style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apps | Joel Apex Solutions</title>
+  <meta name="description" content="Professional Android apps by Joel Apex Solutions. Home Buyers Guide SA — guiding South African property buyers to make confident decisions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
-
 <body>
 
-<h1>Apps</h1>
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Joel Apex Solutions Home">
+        <img src="../images/logo.png" alt="Joel Apex Solutions" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-name">JOEL APEX</span>
+          <span class="logo-sub">SOLUTIONS</span>
+        </span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html"         class="nav-link">HOME</a></li>
+        <li><a href="../games/index.html"   class="nav-link">GAMES</a></li>
+        <li><a href="index.html"            class="nav-link active">APPS</a></li>
+        <li><a href="../about/index.html"   class="nav-link">ABOUT</a></li>
+        <li><a href="../contact/index.html" class="nav-link">CONTACT</a></li>
+      </ul>
+      <a href="https://play.google.com/store/apps/developer?id=Joel+Apex+Solutions"
+         class="nav-gplay" target="_blank" rel="noopener">
+        <img src="../images/google-play-badge.png" alt="Get it on Google Play" />
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <ul role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../games/index.html">Games</a></li>
+        <li><a href="index.html" class="active">Apps</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+      </ul>
+      <a href="https://play.google.com/store/apps/developer?id=Joel+Apex+Solutions"
+         class="mobile-gplay" target="_blank" rel="noopener">
+        <img src="../images/google-play-badge.png" alt="Get it on Google Play" />
+      </a>
+    </div>
+  </nav>
 
-<p>Coming Soon</p>
+  <main>
 
-<script src="../js/script.js"></script>
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="ph-eyebrow">Joel Apex Solutions</p>
+        <h1 class="ph-title">OUR <span class="accent-gold">APPS</span></h1>
+        <p class="ph-sub">Professional Android applications built to solve real problems — empowering users with tools that make a difference.</p>
+      </div>
+    </section>
 
+    <!-- ═══ APPS SHOWCASE ═══ -->
+    <section class="app-showcase-section">
+      <div class="container">
+
+        <!-- ── Featured App: Home Buyers Guide SA ── -->
+        <article class="app-showcase-card catalog-card--teal-app reveal">
+          <div class="app-showcase-image">
+            <img src="../images/homebuyersguidesa_header_banner.png"
+                 alt="Home Buyers Guide SA — Know Before You Buy"
+                 loading="lazy" />
+          </div>
+          <div class="app-showcase-body">
+            <div class="app-showcase-icon-row">
+              <img src="../images/homebuyersguidesa_logo.jpg"
+                   alt="Home Buyers Guide SA icon"
+                   class="app-showcase-icon"
+                   loading="lazy" />
+              <div>
+                <p class="app-showcase-label">Featured App &bull; Android</p>
+                <h2 class="app-showcase-title">Home Buyers<br />Guide SA</h2>
+              </div>
+            </div>
+
+            <div class="app-showcase-tags">
+              <span class="app-tag">Real Estate</span>
+              <span class="app-tag">South Africa</span>
+              <span class="app-tag">Utility</span>
+              <span class="app-tag">Freemium</span>
+            </div>
+
+            <p class="app-showcase-desc">
+              Walk through any property with confidence. Home Buyers Guide SA gives South African property buyers a structured room-by-room assessment checklist, red-flag guidance, cost scoring, and a professional PDF report — all in one app.
+            </p>
+
+            <ul class="app-showcase-features">
+              <li>Room-by-room assessment</li>
+              <li>Red-flag identification</li>
+              <li>Photo documentation</li>
+              <li>PDF report generation</li>
+              <li>Bond &amp; transfer calculator</li>
+              <li>SA-specific (SARS 2025/26)</li>
+            </ul>
+
+            <div class="app-showcase-actions">
+              <a href="app-details.html" class="btn btn--teal">VIEW APP DETAILS</a>
+              <a href="https://play.google.com/store/apps/details?id=com.joelapexs.propertyinspector"
+                 target="_blank" rel="noopener" class="catalog-play-btn">
+                <img src="../images/google-play-badge.png" alt="Get it on Google Play" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══ COMING SOON PLACEHOLDER ═══ -->
+    <section class="detail-section" style="text-align: center; padding-block: 60px 80px;">
+      <div class="container">
+        <p class="detail-section-title" style="color: var(--txt-muted); justify-content: center; display: flex;">MORE APPS COMING SOON</p>
+        <p style="font-size: 14px; color: var(--txt-muted); max-width: 480px; margin-inline: auto; line-height: 1.7;">
+          Joel Apex Solutions is actively developing new Android applications. Check back soon or follow us on social media for announcements.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo nav-logo" aria-label="Joel Apex Solutions">
+        <img src="../images/logo.png" alt="Joel Apex Solutions" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-name">JOEL APEX</span>
+          <span class="logo-sub">SOLUTIONS</span>
+        </span>
+      </a>
+      <p class="footer-copy">&copy; 2025 Joel Apex Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
 </body>
-
 </html>
