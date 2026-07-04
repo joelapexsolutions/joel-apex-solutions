@@ -4,207 +4,210 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Joel Apex Solutions</title>
-  <meta name="description" content="Get in touch with Joel Apex Solutions — for business enquiries, partnerships, investor relations, or general questions." />
+  <meta name="description" content="Get in touch with Joel Apex Solutions — for investment, partnerships, support or general enquiries." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
   <style>
-    /* Contact page specific */
-    .contact-layout {
+    /* ── Contact layout ── */
+    .contact-section { padding-block: 70px 100px; }
+
+    .contact-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.4fr;
       gap: 60px;
       align-items: start;
     }
 
-    /* Left: CTA card */
-    .contact-cta-card {
-      background: linear-gradient(135deg, rgba(14 14 50 / 0.98) 0%, rgba(9 9 32 / 0.98) 100%);
-      border: 1px solid rgba(0 212 228 / 0.45);
-      border-radius: 22px;
-      padding: 48px 44px;
-      box-shadow: 0 0 28px rgba(0 212 228 / 0.15), 0 12px 48px rgba(0 0 0 / 0.55);
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .contact-label {
+    /* Left side – intro */
+    .contact-intro { display: flex; flex-direction: column; gap: 22px; }
+
+    .contact-intro-label {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--clr-teal);
     }
-    .contact-headline {
+    .contact-intro-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(22px, 3.5vw, 34px);
+      font-size: clamp(22px, 3vw, 34px);
       font-weight: 900;
       line-height: 1.1;
       color: #fff;
     }
-    .contact-body {
-      font-size: 14.5px;
+    .contact-intro-body {
+      font-size: 14px;
       color: var(--txt-secondary);
       line-height: 1.8;
     }
-
-    /* Big email CTA button */
-    .email-cta {
+    .contact-direct {
       display: flex;
       align-items: center;
-      gap: 14px;
-      background: rgba(0 212 228 / 0.08);
-      border: 1.5px solid rgba(0 212 228 / 0.5);
-      border-radius: 14px;
-      padding: 18px 24px;
-      transition: background 0.2s, border-color 0.2s, transform 0.25s var(--ease-spring), box-shadow 0.25s;
-      text-decoration: none;
-    }
-    .email-cta:hover {
-      background: rgba(0 212 228 / 0.14);
-      border-color: rgba(0 212 228 / 0.8);
-      transform: translateY(-3px);
-      box-shadow: 0 0 28px rgba(0 212 228 / 0.35), 0 8px 28px rgba(0 0 0 / 0.3);
-    }
-    .email-cta-icon {
-      width: 46px; height: 46px;
-      background: rgba(0 212 228 / 0.12);
-      border: 1px solid rgba(0 212 228 / 0.25);
+      gap: 12px;
+      padding: 16px 18px;
+      background: rgba(0 212 228 / 0.06);
+      border: 1px solid rgba(0 212 228 / 0.2);
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--clr-teal);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .email-cta-text { flex: 1; }
-    .email-cta-action {
-      font-size: 11px;
+    .contact-direct:hover {
+      background: rgba(0 212 228 / 0.12);
+      border-color: rgba(0 212 228 / 0.45);
+    }
+    .contact-direct-icon { color: var(--clr-teal); flex-shrink: 0; }
+    .contact-direct-label {
+      font-size: 10.5px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--clr-teal);
-      margin-block-end: 4px;
+      margin-block-end: 3px;
     }
-    .email-cta-address {
-      font-size: 16px;
+    .contact-direct-value {
+      font-size: 14px;
       font-weight: 600;
       color: #fff;
-      word-break: break-all;
     }
-    .email-cta-arrow {
-      font-size: 22px;
-      color: var(--clr-teal);
-      flex-shrink: 0;
-      transition: transform 0.2s;
-    }
-    .email-cta:hover .email-cta-arrow { transform: translateX(4px); }
-
-    /* Response time badge */
-    .response-badge {
+    .contact-response {
+      font-size: 12.5px;
+      color: var(--txt-muted);
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 12.5px;
-      color: var(--txt-muted);
     }
     .response-dot {
       width: 7px; height: 7px;
       background: #4caf50;
       border-radius: 50%;
       flex-shrink: 0;
-      animation: pulse 2.5s ease-in-out infinite;
+      animation: pulseAnim 2.5s ease-in-out infinite;
     }
 
-    /* Right: info blocks */
-    .contact-info-blocks {
+    /* Right side – form card */
+    .contact-form-card {
+      background: linear-gradient(135deg, rgba(14 14 50 / 0.98) 0%, rgba(9 9 32 / 0.98) 100%);
+      border: 1px solid rgba(0 212 228 / 0.4);
+      border-radius: 22px;
+      padding: 44px 40px;
+      box-shadow: 0 0 26px rgba(0 212 228 / 0.12), 0 12px 48px rgba(0 0 0 / 0.55);
+    }
+
+    /* Form elements */
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+    .form-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+    .contact-form {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
-    .info-block {
-      background: rgba(255 255 255 / 0.03);
-      border: 1px solid rgba(255 255 255 / 0.08);
-      border-radius: 16px;
-      padding: 24px 22px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .info-block:hover {
-      background: rgba(255 255 255 / 0.055);
-      border-color: rgba(255 255 255 / 0.13);
-    }
-    .info-block-icon {
-      font-size: 24px;
-      line-height: 1;
-      flex-shrink: 0;
-      margin-block-start: 2px;
-    }
-    .info-block-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      margin-block-end: 6px;
-      letter-spacing: 0.03em;
-    }
-    .info-block-text {
-      font-size: 13px;
-      color: var(--txt-secondary);
-      line-height: 1.7;
-    }
-    .info-block-link {
-      font-size: 13px;
-      color: var(--clr-teal);
-      font-weight: 500;
-      transition: color 0.2s;
-      display: inline-block;
-      margin-block-start: 4px;
-    }
-    .info-block-link:hover { color: #fff; }
 
-    /* Topics section */
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-block-start: 8px;
+    .form-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255 255 255 / 0.55);
     }
-    .topic-chip {
+    .form-label span { color: var(--clr-teal); margin-inline-start: 2px; }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: rgba(255 255 255 / 0.04);
+      border: 1.5px solid rgba(255 255 255 / 0.1);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(255 255 255 / 0.25);
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(0 212 228 / 0.7);
+      background: rgba(0 212 228 / 0.04);
+      box-shadow: 0 0 0 3px rgba(0 212 228 / 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    /* Send button */
+    .form-submit {
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(255 255 255 / 0.03);
-      border: 1px solid rgba(255 255 255 / 0.08);
-      border-radius: 10px;
-      padding: 12px 16px;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px 28px;
+      font-family: 'Orbitron', sans-serif;
       font-size: 13px;
-      color: rgba(255 255 255 / 0.7);
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
-      cursor: default;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg-deep);
+      background: linear-gradient(135deg, var(--clr-teal) 0%, #00b8cc 100%);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-out), opacity 0.2s;
+      margin-block-start: 4px;
     }
-    .topic-chip:hover {
-      background: rgba(0 212 228 / 0.06);
-      border-color: rgba(0 212 228 / 0.25);
-      color: #fff;
+    .form-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 28px rgba(0 212 228 / 0.5), 0 8px 28px rgba(0 0 0 / 0.3);
     }
-    .topic-chip-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--clr-teal);
-      flex-shrink: 0;
+    .form-submit:active { transform: translateY(0); }
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Success / error states */
+    .form-status {
+      display: none;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-align: center;
+    }
+    .form-status.success {
+      display: block;
+      background: rgba(76 175 80 / 0.1);
+      border: 1px solid rgba(76 175 80 / 0.3);
+      color: #81c784;
+    }
+    .form-status.error {
+      display: block;
+      background: rgba(255 77 109 / 0.1);
+      border: 1px solid rgba(255 77 109 / 0.3);
+      color: #ff7a91;
     }
 
     /* Responsive */
     @media (max-width: 900px) {
-      .contact-layout { grid-template-columns: 1fr; gap: 36px; }
-      .topics-grid { grid-template-columns: 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 36px; }
+      .form-row     { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .contact-cta-card { padding: 30px 22px; }
-      .email-cta { flex-wrap: wrap; }
+      .contact-form-card { padding: 28px 20px; }
     }
   </style>
 </head>
@@ -257,101 +260,142 @@
       <div class="page-hero-inner">
         <p class="ph-eyebrow">Joel Apex Solutions</p>
         <h1 class="ph-title">GET IN <span class="accent-gold">TOUCH</span></h1>
-        <p class="ph-sub">Whether you're an investor, partner, collaborator, or just curious about the work — the door is open.</p>
+        <p class="ph-sub">Whether you're an investor, partner or just curious about our work — we'd love to hear from you.</p>
       </div>
     </section>
 
-    <!-- ═══ CONTACT CONTENT ═══ -->
-    <section class="detail-section">
+    <!-- ═══ CONTACT FORM ═══ -->
+    <section class="contact-section">
       <div class="container">
-        <div class="contact-layout">
+        <div class="contact-wrap">
 
-          <!-- LEFT: Primary CTA card -->
-          <div class="contact-cta-card reveal">
-            <div>
-              <p class="contact-label">Direct contact</p>
-              <h2 class="contact-headline">Let's start a<br />conversation.</h2>
-            </div>
-            <p class="contact-body">
-              Joel Apex Solutions is run by a single founder — which means when you email, you hear directly from the person who built the products. No support queues, no middlemen.
+          <!-- LEFT: intro -->
+          <div class="contact-intro">
+            <p class="contact-intro-label">Direct Contact</p>
+            <h2 class="contact-intro-title">Let's start a conversation.</h2>
+            <p class="contact-intro-body">
+              Fill in the form and we'll get back to you as soon as possible. For urgent matters, you can email us directly below.
             </p>
 
-            <!-- Primary email CTA -->
-            <a href="mailto:joelapexs@gmail.com" class="email-cta">
-              <div class="email-cta-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
+            <a href="mailto:joelapexs@gmail.com" class="contact-direct">
+              <svg class="contact-direct-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <div>
+                <p class="contact-direct-label">Email us directly</p>
+                <p class="contact-direct-value">joelapexs@gmail.com</p>
               </div>
-              <div class="email-cta-text">
-                <p class="email-cta-action">Send an email</p>
-                <p class="email-cta-address">joelapexs@gmail.com</p>
-              </div>
-              <span class="email-cta-arrow">→</span>
             </a>
 
-            <div class="response-badge">
+            <p class="contact-response">
               <span class="response-dot"></span>
               Typically responds within 24–48 hours
-            </div>
-
-            <!-- Topics -->
-            <div>
-              <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--txt-muted); margin-block-end: 12px;">What we can discuss</p>
-              <div class="topics-grid">
-                <div class="topic-chip"><span class="topic-chip-dot"></span>Investment &amp; funding</div>
-                <div class="topic-chip"><span class="topic-chip-dot"></span>Business partnerships</div>
-                <div class="topic-chip"><span class="topic-chip-dot"></span>Press &amp; media</div>
-                <div class="topic-chip"><span class="topic-chip-dot"></span>App support</div>
-                <div class="topic-chip"><span class="topic-chip-dot"></span>Game feedback</div>
-                <div class="topic-chip"><span class="topic-chip-dot"></span>General enquiries</div>
-              </div>
-            </div>
+            </p>
           </div>
 
-          <!-- RIGHT: Info blocks -->
-          <div class="contact-info-blocks">
+          <!-- RIGHT: form card -->
+          <div class="contact-form-card reveal">
 
-            <div class="info-block reveal">
-              <span class="info-block-icon">📍</span>
-              <div>
-                <p class="info-block-title">Location</p>
-                <p class="info-block-text">Johannesburg, Gauteng, South Africa.<br />Available for remote collaboration worldwide.</p>
+            <!--
+              IMPORTANT: This form uses Formspree to send emails automatically.
+              To activate it:
+              1. Go to https://formspree.io and create a free account
+              2. Create a new form pointing to joelapexs@gmail.com
+              3. Copy your Form ID (looks like: xpzvrbno)
+              4. Replace "YOUR_FORM_ID" in the action URL below with your actual ID
+
+              Example: action="https://formspree.io/f/xpzvrbno"
+            -->
+            <form
+              id="contactForm"
+              class="contact-form"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              novalidate
+            >
+              <!-- Row 1: Name + Company -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name">Full Name <span>*</span></label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="company">Company Name</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="company"
+                    name="company"
+                    placeholder="Optional"
+                    autocomplete="organization"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div class="info-block reveal">
-              <span class="info-block-icon">💼</span>
-              <div>
-                <p class="info-block-title">Business &amp; Investment</p>
-                <p class="info-block-text">Joel Apex Solutions is actively seeking investment and partnership opportunities. For formal investment enquiries, please reference your organisation and area of interest in your email.</p>
-                <a href="mailto:joelapexs@gmail.com?subject=Investment%20Enquiry%20-%20Joel%20Apex%20Solutions" class="info-block-link">Send investment enquiry →</a>
+              <!-- Row 2: Phone + Email -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="phone">Contact Number</label>
+                  <input
+                    class="form-input"
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+27 xx xxx xxxx"
+                    autocomplete="tel"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address <span>*</span></label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div class="info-block reveal">
-              <span class="info-block-icon">🎮</span>
-              <div>
-                <p class="info-block-title">App &amp; Game Support</p>
-                <p class="info-block-text">Having an issue with one of our apps or games? Email us with your device details and a description of the problem. We take every report seriously.</p>
-                <a href="mailto:joelapexs@gmail.com?subject=App%20Support" class="info-block-link">Email app support →</a>
+              <!-- Message -->
+              <div class="form-group">
+                <label class="form-label" for="message">Message <span>*</span></label>
+                <textarea
+                  class="form-textarea"
+                  id="message"
+                  name="message"
+                  placeholder="Tell us what's on your mind..."
+                  required
+                ></textarea>
               </div>
-            </div>
 
-            <div class="info-block reveal">
-              <span class="info-block-icon">🔗</span>
-              <div>
-                <p class="info-block-title">Find Us Online</p>
-                <p class="info-block-text">Follow our work and stay up to date with new releases.</p>
-                <a href="https://github.com/joelapexsolutions" target="_blank" rel="noopener" class="info-block-link">GitHub — joelapexsolutions →</a>
-                <br />
-                <a href="https://play.google.com/store/apps/developer?id=Joel+Apex+Solutions" target="_blank" rel="noopener" class="info-block-link">Google Play Developer Page →</a>
-              </div>
-            </div>
+              <!-- Status message (shown after submission) -->
+              <div id="formStatus" class="form-status" role="alert" aria-live="polite"></div>
 
-          </div><!-- /contact-info-blocks -->
-        </div><!-- /contact-layout -->
+              <!-- Submit -->
+              <button type="submit" class="form-submit" id="submitBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"/>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                SEND MESSAGE
+              </button>
+
+            </form>
+          </div><!-- /contact-form-card -->
+
+        </div><!-- /contact-wrap -->
       </div>
     </section>
 
@@ -370,6 +414,72 @@
     </div>
   </footer>
 
+  <script>
+    /* ─── Contact form: intercept submit → Formspree via fetch ─── */
+    (function () {
+      const form     = document.getElementById('contactForm');
+      const statusEl = document.getElementById('formStatus');
+      const submitBtn= document.getElementById('submitBtn');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        /* Basic client-side validation */
+        const name    = form.name.value.trim();
+        const email   = form.email.value.trim();
+        const message = form.message.value.trim();
+
+        if (!name || !email || !message) {
+          showStatus('error', 'Please fill in all required fields (marked with *).');
+          return;
+        }
+
+        /* Disable button and show loading state */
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'SENDING…';
+        statusEl.style.display = 'none';
+        statusEl.className = 'form-status';
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            showStatus('success', '✓ Message sent! We\'ll get back to you within 24–48 hours.');
+            form.reset();
+          } else {
+            const data = await response.json();
+            const msg  = data.errors
+              ? data.errors.map(err => err.message).join(', ')
+              : 'Something went wrong. Please try emailing us directly at joelapexs@gmail.com';
+            showStatus('error', msg);
+          }
+        } catch {
+          showStatus('error', 'Could not send your message. Please email us directly at joelapexs@gmail.com');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            SEND MESSAGE`;
+        }
+      });
+
+      function showStatus(type, message) {
+        statusEl.className = 'form-status ' + type;
+        statusEl.textContent = message;
+        statusEl.style.display = 'block';
+        statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }());
+  </script>
   <script src="../js/main.js"></script>
 </body>
 </html>
