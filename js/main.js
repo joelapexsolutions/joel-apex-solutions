@@ -72,12 +72,13 @@
   const elements = document.querySelectorAll('.reveal');
   if (!elements.length) return;
 
-  // Skip animation if user prefers reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    elements.forEach(el => el.classList.add('visible'));
-    return;
-  }
+  // Reduced motion — skip, elements stay visible by default
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  // Step 1: Apply hidden starting state
+  elements.forEach(el => el.classList.add('pre-anim'));
+
+  // Step 2: Observe elements entering the viewport
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -88,12 +89,21 @@
       });
     },
     {
-      threshold: 0.12,
-      rootMargin: '0px 0px -48px 0px'
+      threshold: 0.05,
+      rootMargin: '0px 0px -20px 0px'
     }
   );
 
   elements.forEach(el => observer.observe(el));
+
+  // Step 3: Failsafe — force show everything after 3 seconds
+  setTimeout(() => {
+    elements.forEach(el => {
+      if (!el.classList.contains('visible')) {
+        el.classList.add('visible');
+      }
+    });
+  }, 3000);
 }());
 
 
