@@ -1228,7 +1228,8 @@ button { cursor: pointer; border: none; background: none; }
 }
 .app-showcase-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Give image column more space (55%) so wide banner isn't over-cropped */
+  grid-template-columns: 55% 45%;
   border-radius: 22px;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(14 14 50 / 0.98) 0%, rgba(9 9 32 / 0.98) 100%);
@@ -1249,11 +1250,12 @@ button { cursor: pointer; border: none; background: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  /* Shift anchor point left so the "HOME BUYERS GUIDE" text is centred in view */
+  object-position: 30% center;
   display: block;
   transition: transform 0.5s var(--ease-out);
 }
-.app-showcase-card:hover .app-showcase-image img { transform: scale(1.05); }
+.app-showcase-card:hover .app-showcase-image img { transform: scale(1.04); }
 .app-showcase-body {
   padding: 40px 40px 36px;
   display: flex;
