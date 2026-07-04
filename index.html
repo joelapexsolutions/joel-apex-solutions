@@ -18,9 +18,15 @@
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
 
-     <!-- Logo -->
+      <!-- Logo — uses logo.png from images folder.
+           For best results: open logo.png in Canva → Background Remover
+           → export as PNG with transparent background → replace the file. -->
       <a href="index.html" class="nav-logo" aria-label="Joel Apex Solutions Home">
         <img src="images/logo.png" alt="Joel Apex Solutions" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-name">JOEL APEX</span>
+          <span class="logo-sub">SOLUTIONS</span>
+        </span>
       </a>
 
       <!-- Desktop nav links -->
@@ -64,102 +70,41 @@
   <main>
 
     <!-- ═══════════════════════════════════════════
-         HERO SECTION
+         HERO SECTION — FULL-WIDTH BANNER
     ═══════════════════════════════════════════ -->
     <section class="hero" id="hero">
+      <div class="hero-banner-wrap">
 
-      <!-- Ambient background layers -->
-      <div class="hero-bg" aria-hidden="true">
-        <div class="hglow hglow--violet"></div>
-        <div class="hglow hglow--blue"></div>
-        <div class="hglow hglow--amber"></div>
-        <div class="hglow hglow--pink"></div>
-        <div class="hstars"></div>
-        <div class="hgrid"></div>
-      </div>
+        <!-- The banner image is the complete hero visual -->
+        <img
+          src="images/JAS_websitebanner.png"
+          alt="Joel Apex Solutions — Building Mobile Apps and Games People Love"
+          class="hero-banner-img"
+        />
 
-      <div class="hero-layout">
-
-        <!-- LEFT — Copy -->
-        <div class="hero-copy">
-          <div class="hero-badge">
-            <span class="badge-pulse"></span>
-            Independent Software Studio
-          </div>
-
-         <h1 class="hero-title">
-            BUILDING MOBILE APPS &amp;<br />
-            <span class="accent-gold">GAMES PEOPLE LOVE</span>
-          </h1>
-
-          <p class="hero-sub">Professional Android Apps &bull; Mobile Games</p>
-          <p class="hero-loc">Independent Software Studio based in South Africa</p>
-
-          <div class="hero-actions">
-            <a href="apps/index.html"  class="btn btn--teal">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
-                <rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
-              </svg>
-              EXPLORE APPS
-            </a>
-            <a href="games/index.html" class="btn btn--gold">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                <rect x="2" y="7" width="20" height="13" rx="3"/>
-                <path d="M8 7V5a2 2 0 0 1 4 0v2"/>
-                <circle cx="8.5"  cy="13.5" r="1.5" fill="currentColor" stroke="none"/>
-                <circle cx="15.5" cy="13.5" r="1.5" fill="currentColor" stroke="none"/>
-              </svg>
-              VIEW GAMES
-            </a>
-          </div>
+        <!-- Functional CTA buttons overlaid on the banner graphic.
+             Position targets the button graphics inside the 1983×793px image. -->
+        <div class="hero-banner-btns">
+          <a href="apps/index.html" class="btn btn--teal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+            </svg>
+            EXPLORE APPS
+          </a>
+          <a href="games/index.html" class="btn btn--gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <rect x="2" y="6" width="20" height="14" rx="3"/>
+              <circle cx="8"  cy="13" r="1.5" fill="currentColor" stroke="none"/>
+              <circle cx="12" cy="13" r="1.5" fill="currentColor" stroke="none"/>
+              <circle cx="16" cy="13" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+            VIEW GAMES
+          </a>
         </div>
 
-        <!-- RIGHT — Phone mockups -->
-        <div class="hero-phones" aria-hidden="true">
-
-          <!-- Left phone — Truth or Dare -->
-          <div class="phone phone--left">
-            <div class="phone-shell">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <img src="images/truthdare_heading.png" alt="Couples Truth or Dare" />
-              </div>
-              <div class="phone-home-bar"></div>
-            </div>
-            <div class="phone-glow phone-glow--red"></div>
-          </div>
-
-          <!-- Center phone — 30 Seconds (largest) -->
-          <div class="phone phone--center">
-            <div class="phone-shell">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <img src="images/30seconds_Heading.jpg" alt="The Ultimate 30 Seconds Game" />
-              </div>
-              <div class="phone-home-bar"></div>
-            </div>
-            <div class="phone-glow phone-glow--blue"></div>
-          </div>
-
-          <!-- Right phone — Lotto Genius -->
-          <div class="phone phone--right">
-            <div class="phone-shell">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <img src="images/lotto_genius_logo.jpeg" alt="Lotto Genius" />
-              </div>
-              <div class="phone-home-bar"></div>
-            </div>
-            <div class="phone-glow phone-glow--gold"></div>
-          </div>
-
-        </div><!-- /hero-phones -->
-      </div><!-- /hero-layout -->
-
-      <!-- Scroll indicator -->
-      <div class="scroll-hint" aria-hidden="true">
-        <span class="scroll-dot"></span>
       </div>
     </section>
 
@@ -296,9 +241,13 @@
   <footer class="footer">
     <div class="footer-inner">
 
-     <!-- Logo -->
+      <!-- Logo -->
       <a href="index.html" class="footer-logo nav-logo" aria-label="Joel Apex Solutions">
         <img src="images/logo.png" alt="Joel Apex Solutions" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-name">JOEL APEX</span>
+          <span class="logo-sub">SOLUTIONS</span>
+        </span>
       </a>
 
       <!-- Links -->
