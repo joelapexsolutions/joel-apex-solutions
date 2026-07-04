@@ -1,1 +1,1 @@
-// Joel Apex Solutions JavaScript
+// Joel Apex Solutions
