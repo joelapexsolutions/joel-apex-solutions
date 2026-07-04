@@ -31,7 +31,7 @@
   --border-mid:    rgba(255 255 255 / 0.13);
 
   /* Layout */
-  --nav-h:        76px;
+  --nav-h:        90px;
   --max-w:        1280px;
   --pad-x:        clamp(16px, 4vw, 48px);
 
@@ -114,7 +114,7 @@ button { cursor: pointer; border: none; background: none; }
    in Canva → Background Remover → export as PNG (transparent).
    That is the permanent fix for a clean look on dark backgrounds. */
 .logo-img {
-  height: 52px;
+  height: 65px;
   width: auto;
   display: block;
   border-radius: 8px;
@@ -124,7 +124,7 @@ button { cursor: pointer; border: none; background: none; }
 
 /* Footer logo is slightly smaller */
 .footer-logo .logo-img {
-  height: 44px;
+  height: 52px;
 }
 
 .logo-text {
