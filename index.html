@@ -3,46 +3,576 @@
 
 <head>
 
+    <!-- =====================================================
+         BASIC META
+    ====================================================== -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Joel Apex Solutions | Mobile Apps & Games</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="Joel Apex Solutions is an independent Android app and mobile game studio creating engaging games and practical applications.">
+    <title>
 
-    <link rel="stylesheet" href="css/style.css">
+        Joel Apex Solutions |
+        Mobile Apps & Games
+
+    </title>
+
+    <meta
+        name="description"
+        content="Joel Apex Solutions is an independent South African software studio creating engaging Android apps and mobile games.">
+
+    <meta
+        name="keywords"
+        content="Joel Apex Solutions, Android Apps, Mobile Games, South Africa">
+
+    <meta
+        name="author"
+        content="Joel Apex Solutions">
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
 
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <header>
+<!-- =====================================================
+     HEADER
+====================================================== -->
 
-    </header>
+<header class="header">
 
-    <!-- Hero -->
-    <section class="hero">
+    <div class="container">
 
-    </section>
+        <nav class="navbar">
 
-    <!-- Featured Games -->
-    <section class="featured-games">
+            <!-- Logo -->
 
-    </section>
+            <a
+                href="index.html"
+                class="logo">
 
-    <!-- Why Choose Us -->
-    <section class="why-us">
+                <img
+                    src="images/joel-apex-logo.png"
+                    alt="Joel Apex Solutions">
 
-    </section>
+            </a>
 
-    <!-- Footer -->
-    <footer>
+            <!-- Navigation -->
 
-    </footer>
+            <ul class="nav-menu">
 
-    <script src="js/script.js"></script>
+                <li>
+
+                    <a
+                        href="index.html"
+                        class="active">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="games.html">
+
+                        Games
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="apps.html">
+
+                        Apps
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="about.html">
+
+                        About
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="contact.html">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+            <!-- Google Play -->
+
+            <a
+                href="#"
+                class="google-play">
+
+                <img
+                    src="images/google-play-badge.png"
+                    alt="Download on Google Play">
+
+            </a>
+
+            <!-- Mobile Menu -->
+
+            <div class="menu-toggle">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+    <div class="container hero-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+
+                Independent Mobile App &
+                Game Studio
+
+            </span>
+
+            <h1>
+
+                Building Mobile Apps &
+                Games People Love
+
+            </h1>
+
+            <p>
+
+                Creating engaging Android apps
+                and exciting mobile games for
+                players and users around the world.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="apps.html"
+                    class="btn btn-primary">
+
+                    Explore Apps
+
+                </a>
+
+                <a
+                    href="games.html"
+                    class="btn btn-secondary">
+
+                    View Games
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="hero-images">
+                        <!-- Phone 1 -->
+
+            <div class="phone phone-one">
+
+                <img
+                    src="images/truthdare_heading.png"
+                    alt="Truth or Dare">
+
+            </div>
+
+            <!-- Phone 2 -->
+
+            <div class="phone phone-two">
+
+                <img
+                    src="images/30seconds_Heading.jpg"
+                    alt="30 Seconds">
+
+            </div>
+
+            <!-- Phone 3 -->
+
+            <div class="phone phone-three">
+
+                <img
+                    src="images/lotto_genius_banner.png"
+                    alt="Lotto Genius">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FEATURED GAMES
+====================================================== -->
+
+<section class="featured-games">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+
+                FEATURED GAMES
+
+            </span>
+
+            <h2>
+
+                Games Designed For Everyone
+
+            </h2>
+
+            <p>
+
+                Discover fun, engaging games created
+                to bring people together through
+                entertainment, competition and memorable experiences.
+
+            </p>
+
+        </div>
+
+        <div class="games-grid">
+
+            <!-- 30 Seconds -->
+
+            <article class="game-card">
+
+                <img
+                    src="images/30seconds_logo.jpg"
+                    class="game-logo"
+                    alt="30 Seconds">
+
+                <h3>
+
+                    30 Seconds
+
+                </h3>
+
+                <p>
+
+                    A fast-paced party game where
+                    players race against the clock
+                    to describe words and phrases.
+
+                </p>
+
+                <a
+                    href="games.html"
+                    class="game-button">
+
+                    Learn More
+
+                </a>
+
+            </article>
+
+            <!-- Truth or Dare -->
+
+            <article class="game-card">
+
+                <img
+                    src="images/truthdare_logo.png"
+                    class="game-logo"
+                    alt="Truth or Dare">
+
+                <h3>
+
+                    Truth or Dare Couples
+
+                </h3>
+
+                <p>
+
+                    Strengthen your relationship
+                    with romantic questions,
+                    exciting dares and fun challenges.
+
+                </p>
+
+                <a
+                    href="games.html"
+                    class="game-button">
+
+                    Learn More
+
+                </a>
+
+            </article>
+
+            <!-- Lotto -->
+
+            <article class="game-card">
+
+                <img
+                    src="images/lotto_genius_logo.jpeg"
+                    class="game-logo"
+                    alt="Lotto Genius">
+
+                <h3>
+
+                    Lotto Genius
+
+                </h3>
+
+                <p>
+
+                    Generate smart lottery numbers
+                    quickly with multiple lottery
+                    options and favourite selections.
+
+                </p>
+
+                <a
+                    href="games.html"
+                    class="game-button">
+
+                    Learn More
+
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     WHY JOEL APEX
+====================================================== -->
+
+<section class="why-us">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+
+                WHY JOEL APEX SOLUTIONS
+
+            </span>
+
+            <h2>
+
+                Building Digital Experiences That Matter
+
+            </h2>
+
+        </div>
+
+        <div class="features">
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-mobile-screen-button"></i>
+
+                <h3>
+
+                    Mobile First
+
+                </h3>
+
+                <p>
+
+                    Every product is designed
+                    specifically for the Android
+                    mobile experience.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-gamepad"></i>
+
+                <h3>
+
+                    Fun & Innovation
+
+                </h3>
+
+                <p>
+
+                    Creating games and apps
+                    that entertain, educate
+                    and solve real-world problems.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <h3>
+
+                    Constant Improvement
+
+                </h3>
+
+                <p>
+
+                    Every release is continuously
+                    updated using player feedback
+                    and new ideas.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container footer-content">
+
+        <img
+            src="images/joel-apex-logo.png"
+            class="footer-logo"
+            alt="Joel Apex Solutions">
+
+        <p>
+
+            Building engaging mobile apps and games
+            from South Africa.
+
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="games.html">Games</a>
+
+            <a href="apps.html">Apps</a>
+
+            <a href="about.html">About</a>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+        <div class="social-icons">
+
+            <a href="#">
+
+                <i class="fab fa-google-play"></i>
+
+            </a>
+
+            <a href="#">
+
+                <i class="fab fa-github"></i>
+
+            </a>
+
+            <a href="mailto:joelapexs@gmail.com">
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+        <p class="copyright">
+
+            © 2026 Joel Apex Solutions.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="js/script.js"></script>
 
 </body>
 
