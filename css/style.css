@@ -347,26 +347,35 @@ button { cursor: pointer; border: none; background: none; }
   background: linear-gradient(90deg, transparent, rgba(255 255 255 / 0.09), transparent);
 }
 
-/* Section heading with side lines ── */
+/* Section heading with side separator lines ── */
 .section-heading {
   display: flex;
   align-items: center;
-  gap: 22px;
-  margin-block-end: 48px;
+  gap: 24px;
+  margin-block-end: 52px;
+  justify-content: center;
 }
+/* Lines grow equally to fill the row, pushing title to center */
 .sh-line {
   flex: 1;
-  max-width: 220px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255 255 255 / 0.18), transparent);
+}
+/* Left line: fades IN from left edge toward the title (transparent → pink) */
+.sh-line:first-child {
+  background: linear-gradient(90deg, transparent 0%, rgba(255 77 109 / 0.7) 100%);
+}
+/* Right line: fades OUT from title toward right edge (pink → transparent) */
+.sh-line:last-child {
+  background: linear-gradient(90deg, rgba(255 77 109 / 0.7) 0%, transparent 100%);
 }
 .sh-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(14px, 2vw, 20px);
+  font-size: clamp(15px, 2vw, 22px);
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   color: #fff;
   white-space: nowrap;
+  text-shadow: 0 0 30px rgba(255 255 255 / 0.25);
 }
 
 
@@ -376,55 +385,54 @@ button { cursor: pointer; border: none; background: none; }
 .games-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 24px;
 }
 
 /* Game card ── */
 .gcard {
   display: flex;
   align-items: stretch;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: rgba(255 255 255 / 0.04);
+  border: 1px solid rgba(255 255 255 / 0.1);
   border-radius: 16px;
   overflow: hidden;
   position: relative;
   transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-out), border-color 0.3s;
 }
-.gcard:hover { transform: translateY(-7px); }
+.gcard:hover { transform: translateY(-8px); }
 
-/* Left colored accent strip */
+/* Left colored accent strip — gradient for depth */
 .gcard-accent {
   position: absolute;
   inset-block: 0;
   inset-inline-start: 0;
-  width: 3px;
-  border-radius: 3px 0 0 3px;
+  width: 4px;
 }
-.gcard--red  .gcard-accent { background: var(--clr-red); }
-.gcard--teal .gcard-accent { background: var(--clr-teal); }
-.gcard--gold .gcard-accent { background: var(--clr-gold); }
+.gcard--red  .gcard-accent { background: linear-gradient(180deg, var(--clr-red)  0%, rgba(255 77 109 / 0.2) 100%); }
+.gcard--teal .gcard-accent { background: linear-gradient(180deg, var(--clr-teal) 0%, rgba(0 212 228 / 0.2) 100%); }
+.gcard--gold .gcard-accent { background: linear-gradient(180deg, var(--clr-gold) 0%, rgba(245 166 35 / 0.2) 100%); }
 
 /* Hover glow per card variant */
-.gcard--red:hover  {
-  border-color: rgba(255 77 109 / 0.35);
-  box-shadow: 0 22px 60px rgba(255 77 109 / 0.14), 0 0 0 1px rgba(255 77 109 / 0.12);
+.gcard--red:hover {
+  border-color: rgba(255 77 109 / 0.45);
+  box-shadow: 0 24px 60px rgba(255 77 109 / 0.2), 0 0 0 1px rgba(255 77 109 / 0.15);
 }
 .gcard--teal:hover {
-  border-color: rgba(0 212 228 / 0.35);
-  box-shadow: 0 22px 60px rgba(0 212 228 / 0.14), 0 0 0 1px rgba(0 212 228 / 0.1);
+  border-color: rgba(0 212 228 / 0.45);
+  box-shadow: 0 24px 60px rgba(0 212 228 / 0.2), 0 0 0 1px rgba(0 212 228 / 0.12);
 }
 .gcard--gold:hover {
-  border-color: rgba(245 166 35 / 0.35);
-  box-shadow: 0 22px 60px rgba(245 166 35 / 0.14), 0 0 0 1px rgba(245 166 35 / 0.1);
+  border-color: rgba(245 166 35 / 0.45);
+  box-shadow: 0 24px 60px rgba(245 166 35 / 0.2), 0 0 0 1px rgba(245 166 35 / 0.12);
 }
 
-/* Card image */
+/* Card image — wider for better visual balance */
 .gcard-img-wrap {
   display: block;
-  width: 126px;
+  width: 145px;
   flex-shrink: 0;
   overflow: hidden;
-  background: rgba(0 0 0 / 0.3);
+  background: rgba(0 0 0 / 0.4);
 }
 .gcard-img-wrap img {
   width: 100%;
@@ -432,31 +440,41 @@ button { cursor: pointer; border: none; background: none; }
   object-fit: cover;
   transition: transform 0.4s var(--ease-out);
 }
-.gcard:hover .gcard-img-wrap img { transform: scale(1.06); }
+.gcard:hover .gcard-img-wrap img { transform: scale(1.08); }
 
 /* Card body */
 .gcard-body {
   flex: 1;
-  padding: 20px 18px 20px 16px;
+  padding: 22px 20px 22px 18px;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 10px;
 }
 
+/* Game title — glowing colored text */
 .gcard-title {
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 1.3;
 }
-.gcard-title--red  { color: #ff7a91; }
-.gcard-title--teal { color: var(--clr-teal); }
-.gcard-title--gold { color: var(--clr-gold); }
+.gcard-title--red  {
+  color: #ff7a91;
+  text-shadow: 0 0 14px rgba(255 77 109 / 0.65), 0 0 28px rgba(255 77 109 / 0.3);
+}
+.gcard-title--teal {
+  color: var(--clr-teal);
+  text-shadow: 0 0 14px rgba(0 212 228 / 0.65), 0 0 28px rgba(0 212 228 / 0.3);
+}
+.gcard-title--gold {
+  color: var(--clr-gold);
+  text-shadow: 0 0 14px rgba(245 166 35 / 0.65), 0 0 28px rgba(245 166 35 / 0.3);
+}
 
 .gcard-desc {
-  font-size: 12.5px;
+  font-size: 13px;
   color: var(--txt-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
   flex: 1;
 }
 
@@ -552,9 +570,10 @@ button { cursor: pointer; border: none; background: none; }
   text-transform: uppercase;
   margin-block-end: 8px;
 }
-.pillar-title--teal   { color: var(--clr-teal);   }
-.pillar-title--purple { color: var(--clr-purple); }
-.pillar-title--gold   { color: var(--clr-gold);   }
+/* Glowing pillar title text — matches the reference design */
+.pillar-title--teal   { color: var(--clr-teal);   text-shadow: 0 0 14px rgba(0 212 228 / 0.55),   0 0 28px rgba(0 212 228 / 0.25);   }
+.pillar-title--purple { color: var(--clr-purple); text-shadow: 0 0 14px rgba(157 78 221 / 0.55), 0 0 28px rgba(157 78 221 / 0.25); }
+.pillar-title--gold   { color: var(--clr-gold);   text-shadow: 0 0 14px rgba(245 166 35 / 0.55),  0 0 28px rgba(245 166 35 / 0.25);  }
 
 .pillar-desc {
   font-size: 13px;
@@ -567,9 +586,9 @@ button { cursor: pointer; border: none; background: none; }
    FOOTER
 ═══════════════════════════════════════════════════════ */
 .footer {
-  background: rgba(0 0 0 / 0.45);
+  background: rgba(0 0 0 / 0.5);
   border-top: 1px solid var(--border-subtle);
-  padding-block: 26px;
+  padding-block: 28px;
 }
 
 .footer-inner {
@@ -585,26 +604,9 @@ button { cursor: pointer; border: none; background: none; }
 
 .footer-logo { text-decoration: none; }
 
-.footer-links {
-  display: flex;
-  align-items: center;
-  gap: 26px;
-  flex-wrap: wrap;
-}
-
-.flink {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 12.5px;
-  color: rgba(255 255 255 / 0.48);
-  transition: color 0.2s;
-}
-.flink:hover { color: rgba(255 255 255 / 0.85); }
-
 .footer-copy {
-  font-size: 11.5px;
-  color: rgba(255 255 255 / 0.28);
+  font-size: 12px;
+  color: rgba(255 255 255 / 0.3);
   white-space: nowrap;
 }
 
