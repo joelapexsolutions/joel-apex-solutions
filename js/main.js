@@ -72,13 +72,15 @@
   const elements = document.querySelectorAll('.reveal');
   if (!elements.length) return;
 
-  // Reduced motion — skip, elements stay visible by default
+  // Skip animation for users who prefer reduced motion.
+  // Elements stay visible (the CSS default state).
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Step 1: Apply hidden starting state
+  // Step 1: Opt every .reveal element into the hidden starting state.
+  //         Done in JS so elements are always visible if JS is blocked.
   elements.forEach(el => el.classList.add('pre-anim'));
 
-  // Step 2: Observe elements entering the viewport
+  // Step 2: Reveal each element when it enters the viewport.
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -89,21 +91,21 @@
       });
     },
     {
-      threshold: 0.05,
-      rootMargin: '0px 0px -20px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
     }
   );
 
   elements.forEach(el => observer.observe(el));
 
-  // Step 3: Failsafe — force show everything after 3 seconds
+  // Step 3: Failsafe — force reveal everything after 2.5s.
   setTimeout(() => {
     elements.forEach(el => {
       if (!el.classList.contains('visible')) {
         el.classList.add('visible');
       }
     });
-  }, 3000);
+  }, 2500);
 }());
 
 
