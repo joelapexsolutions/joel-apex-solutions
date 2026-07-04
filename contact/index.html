@@ -1,25 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Joel Apex Solutions</title>
+  <meta name="description" content="Get in touch with Joel Apex Solutions — for business enquiries, partnerships, investor relations, or general questions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Contact page specific */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    /* Left: CTA card */
+    .contact-cta-card {
+      background: linear-gradient(135deg, rgba(14 14 50 / 0.98) 0%, rgba(9 9 32 / 0.98) 100%);
+      border: 1px solid rgba(0 212 228 / 0.45);
+      border-radius: 22px;
+      padding: 48px 44px;
+      box-shadow: 0 0 28px rgba(0 212 228 / 0.15), 0 12px 48px rgba(0 0 0 / 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .contact-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--clr-teal);
+    }
+    .contact-headline {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(22px, 3.5vw, 34px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+    }
+    .contact-body {
+      font-size: 14.5px;
+      color: var(--txt-secondary);
+      line-height: 1.8;
+    }
 
-    <title>Contact | Joel Apex Solutions</title>
+    /* Big email CTA button */
+    .email-cta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(0 212 228 / 0.08);
+      border: 1.5px solid rgba(0 212 228 / 0.5);
+      border-radius: 14px;
+      padding: 18px 24px;
+      transition: background 0.2s, border-color 0.2s, transform 0.25s var(--ease-spring), box-shadow 0.25s;
+      text-decoration: none;
+    }
+    .email-cta:hover {
+      background: rgba(0 212 228 / 0.14);
+      border-color: rgba(0 212 228 / 0.8);
+      transform: translateY(-3px);
+      box-shadow: 0 0 28px rgba(0 212 228 / 0.35), 0 8px 28px rgba(0 0 0 / 0.3);
+    }
+    .email-cta-icon {
+      width: 46px; height: 46px;
+      background: rgba(0 212 228 / 0.12);
+      border: 1px solid rgba(0 212 228 / 0.25);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--clr-teal);
+    }
+    .email-cta-text { flex: 1; }
+    .email-cta-action {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-teal);
+      margin-block-end: 4px;
+    }
+    .email-cta-address {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      word-break: break-all;
+    }
+    .email-cta-arrow {
+      font-size: 22px;
+      color: var(--clr-teal);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .email-cta:hover .email-cta-arrow { transform: translateX(4px); }
 
-    <link rel="stylesheet" href="../css/style.css">
+    /* Response time badge */
+    .response-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--txt-muted);
+    }
+    .response-dot {
+      width: 7px; height: 7px;
+      background: #4caf50;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
 
+    /* Right: info blocks */
+    .contact-info-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .info-block {
+      background: rgba(255 255 255 / 0.03);
+      border: 1px solid rgba(255 255 255 / 0.08);
+      border-radius: 16px;
+      padding: 24px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .info-block:hover {
+      background: rgba(255 255 255 / 0.055);
+      border-color: rgba(255 255 255 / 0.13);
+    }
+    .info-block-icon {
+      font-size: 24px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-block-start: 2px;
+    }
+    .info-block-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-block-end: 6px;
+      letter-spacing: 0.03em;
+    }
+    .info-block-text {
+      font-size: 13px;
+      color: var(--txt-secondary);
+      line-height: 1.7;
+    }
+    .info-block-link {
+      font-size: 13px;
+      color: var(--clr-teal);
+      font-weight: 500;
+      transition: color 0.2s;
+      display: inline-block;
+      margin-block-start: 4px;
+    }
+    .info-block-link:hover { color: #fff; }
+
+    /* Topics section */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-block-start: 8px;
+    }
+    .topic-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255 255 255 / 0.03);
+      border: 1px solid rgba(255 255 255 / 0.08);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: rgba(255 255 255 / 0.7);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      cursor: default;
+    }
+    .topic-chip:hover {
+      background: rgba(0 212 228 / 0.06);
+      border-color: rgba(0 212 228 / 0.25);
+      color: #fff;
+    }
+    .topic-chip-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--clr-teal);
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 36px; }
+      .topics-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .contact-cta-card { padding: 30px 22px; }
+      .email-cta { flex-wrap: wrap; }
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Contact</h1>
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Joel Apex Solutions Home">
+        <img src="../images/logo.png" alt="Joel Apex Solutions" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-name">JOEL APEX</span>
+          <span class="logo-sub">SOLUTIONS</span>
+        </span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html"         class="nav-link">HOME</a></li>
+        <li><a href="../games/index.html"   class="nav-link">GAMES</a></li>
+        <li><a href="../apps/index.html"    class="nav-link">APPS</a></li>
+        <li><a href="../about/index.html"   class="nav-link">ABOUT</a></li>
+        <li><a href="index.html"            class="nav-link active">CONTACT</a></li>
+      </ul>
+      <a href="https://play.google.com/store/apps/developer?id=Joel+Apex+Solutions"
+         class="nav-gplay" target="_blank" rel="noopener">
+        <img src="../images/google-play-badge.png" alt="Get it on Google Play" />
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <ul role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../games/index.html">Games</a></li>
+        <li><a href="../apps/index.html">Apps</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="index.html" class="active">Contact</a></li>
+      </ul>
+      <a href="https://play.google.com/store/apps/developer?id=Joel+Apex+Solutions"
+         class="mobile-gplay" target="_blank" rel="noopener">
+        <img src="../images/google-play-badge.png" alt="Get it on Google Play" />
+      </a>
+    </div>
+  </nav>
 
-<p>Coming Soon</p>
+  <main>
 
-<script src="../js/script.js"></script>
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="ph-eyebrow">Joel Apex Solutions</p>
+        <h1 class="ph-title">GET IN <span class="accent-gold">TOUCH</span></h1>
+        <p class="ph-sub">Whether you're an investor, partner, collaborator, or just curious about the work — the door is open.</p>
+      </div>
+    </section>
 
+    <!-- ═══ CONTACT CONTENT ═══ -->
+    <section class="detail-section">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- LEFT: Primary CTA card -->
+          <div class="contact-cta-card reveal">
+            <div>
+              <p class="contact-label">Direct contact</p>
+              <h2 class="contact-headline">Let's start a<br />conversation.</h2>
+            </div>
+            <p class="contact-body">
+              Joel Apex Solutions is run by a single founder — which means when you email, you hear directly from the person who built the products. No support queues, no middlemen.
+            </p>
+
+            <!-- Primary email CTA -->
+            <a href="mailto:joelapexs@gmail.com" class="email-cta">
+              <div class="email-cta-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="email-cta-text">
+                <p class="email-cta-action">Send an email</p>
+                <p class="email-cta-address">joelapexs@gmail.com</p>
+              </div>
+              <span class="email-cta-arrow">→</span>
+            </a>
+
+            <div class="response-badge">
+              <span class="response-dot"></span>
+              Typically responds within 24–48 hours
+            </div>
+
+            <!-- Topics -->
+            <div>
+              <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--txt-muted); margin-block-end: 12px;">What we can discuss</p>
+              <div class="topics-grid">
+                <div class="topic-chip"><span class="topic-chip-dot"></span>Investment &amp; funding</div>
+                <div class="topic-chip"><span class="topic-chip-dot"></span>Business partnerships</div>
+                <div class="topic-chip"><span class="topic-chip-dot"></span>Press &amp; media</div>
+                <div class="topic-chip"><span class="topic-chip-dot"></span>App support</div>
+                <div class="topic-chip"><span class="topic-chip-dot"></span>Game feedback</div>
+                <div class="topic-chip"><span class="topic-chip-dot"></span>General enquiries</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Info blocks -->
+          <div class="contact-info-blocks">
+
+            <div class="info-block reveal">
+              <span class="info-block-icon">📍</span>
+              <div>
+                <p class="info-block-title">Location</p>
+                <p class="info-block-text">Johannesburg, Gauteng, South Africa.<br />Available for remote collaboration worldwide.</p>
+              </div>
+            </div>
+
+            <div class="info-block reveal">
+              <span class="info-block-icon">💼</span>
+              <div>
+                <p class="info-block-title">Business &amp; Investment</p>
+                <p class="info-block-text">Joel Apex Solutions is actively seeking investment and partnership opportunities. For formal investment enquiries, please reference your organisation and area of interest in your email.</p>
+                <a href="mailto:joelapexs@gmail.com?subject=Investment%20Enquiry%20-%20Joel%20Apex%20Solutions" class="info-block-link">Send investment enquiry →</a>
+              </div>
+            </div>
+
+            <div class="info-block reveal">
+              <span class="info-block-icon">🎮</span>
+              <div>
+                <p class="info-block-title">App &amp; Game Support</p>
+                <p class="info-block-text">Having an issue with one of our apps or games? Email us with your device details and a description of the problem. We take every report seriously.</p>
+                <a href="mailto:joelapexs@gmail.com?subject=App%20Support" class="info-block-link">Email app support →</a>
+              </div>
+            </div>
+
+            <div class="info-block reveal">
+              <span class="info-block-icon">🔗</span>
+              <div>
+                <p class="info-block-title">Find Us Online</p>
+                <p class="info-block-text">Follow our work and stay up to date with new releases.</p>
+                <a href="https://github.com/joelapexsolutions" target="_blank" rel="noopener" class="info-block-link">GitHub — joelapexsolutions →</a>
+                <br />
+                <a href="https://play.google.com/store/apps/developer?id=Joel+Apex+Solutions" target="_blank" rel="noopener" class="info-block-link">Google Play Developer Page →</a>
+              </div>
+            </div>
+
+          </div><!-- /contact-info-blocks -->
+        </div><!-- /contact-layout -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo nav-logo" aria-label="Joel Apex Solutions">
+        <img src="../images/logo.png" alt="Joel Apex Solutions" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-name">JOEL APEX</span>
+          <span class="logo-sub">SOLUTIONS</span>
+        </span>
+      </a>
+      <p class="footer-copy">&copy; 2025 Joel Apex Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
 </body>
-
 </html>
