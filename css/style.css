@@ -1,7 +1,184 @@
-/*
+/* ==========================================
+   JOEL APEX SOLUTIONS
+========================================== */
 
-Joel Apex Solutions Website
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-Version 1.0
+html{
 
-*/
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:#071020;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    color:#ffffff;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+.container{
+
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+
+}
+
+/* ==========================================
+HEADER
+========================================== */
+
+.header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    padding:18px 0;
+
+    backdrop-filter:blur(16px);
+
+    background:rgba(7,16,32,.65);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ==========================================
+NAVBAR
+========================================== */
+
+.navbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.logo img{
+
+    width:300px;
+
+}
+
+/* Menu */
+
+.nav-links{
+
+    display:flex;
+
+    gap:45px;
+
+}
+
+.nav-links a{
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.nav-links a:hover{
+
+    color:#20D7FF;
+
+}
+
+.nav-links .active{
+
+    color:#FFD52E;
+
+}
+
+/* underline */
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    width:0;
+
+    height:3px;
+
+    background:#FFD52E;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+.nav-links .active::after{
+
+    width:100%;
+
+}
+
+/* Google Play */
+
+.play-button img{
+
+    height:60px;
+
+    transition:.3s;
+
+}
+
+.play-button img:hover{
+
+    transform:scale(1.05);
+
+}
