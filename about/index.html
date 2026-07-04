@@ -1,25 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Joel Apex Solutions</title>
+  <meta name="description" content="Joel Apex Solutions is an independent Android software studio based in Johannesburg, South Africa — building premium mobile apps and games." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* About page specific styles */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-text { display: flex; flex-direction: column; gap: 20px; }
+    .about-lead {
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(255 255 255 / 0.85);
+      line-height: 1.75;
+    }
+    .about-body {
+      font-size: 14.5px;
+      color: var(--txt-secondary);
+      line-height: 1.85;
+    }
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0 212 228 / 0.07);
+      border: 1px solid rgba(0 212 228 / 0.22);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--clr-teal);
+      width: fit-content;
+    }
+    .about-badge-dot {
+      width: 7px; height: 7px;
+      background: var(--clr-teal);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    /* Founder card */
+    .founder-card {
+      background: linear-gradient(135deg, rgba(14 14 50 / 0.98) 0%, rgba(9 9 32 / 0.98) 100%);
+      border: 1px solid rgba(0 212 228 / 0.45);
+      border-radius: 22px;
+      padding: 40px;
+      box-shadow: 0 0 24px rgba(0 212 228 / 0.15), 0 12px 48px rgba(0 0 0 / 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .founder-top {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .founder-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--clr-teal), var(--clr-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .founder-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      margin-block-end: 4px;
+    }
+    .founder-role {
+      font-size: 12px;
+      color: var(--clr-teal);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .founder-bio {
+      font-size: 13.5px;
+      color: var(--txt-secondary);
+      line-height: 1.8;
+    }
+    .founder-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: rgba(255 255 255 / 0.05);
+      color: rgba(255 255 255 / 0.6);
+      border: 1px solid rgba(255 255 255 / 0.12);
+    }
 
-    <title>About | Joel Apex Solutions</title>
+    /* Values / pillars row */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-block-start: 8px;
+    }
+    .value-card {
+      background: rgba(255 255 255 / 0.03);
+      border: 1px solid rgba(255 255 255 / 0.08);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background 0.2s, border-color 0.25s;
+    }
+    .value-card:hover {
+      background: rgba(255 255 255 / 0.055);
+      border-color: rgba(255 255 255 / 0.15);
+    }
+    .value-num {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .value-num--teal   { color: var(--clr-teal);   }
+    .value-num--purple { color: var(--clr-purple); }
+    .value-num--gold   { color: var(--clr-gold);   }
+    .value-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+    .value-desc {
+      font-size: 13px;
+      color: var(--txt-secondary);
+      line-height: 1.7;
+    }
 
-    <link rel="stylesheet" href="../css/style.css">
+    /* Recognition strip */
+    .recognition-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 36px var(--pad-x);
+      border-block: 1px solid rgba(255 255 255 / 0.07);
+      flex-wrap: wrap;
+    }
+    .recognition-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .recognition-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .recognition-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255 255 255 / 0.55);
+    }
+    .recognition-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
 
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .recognition-strip { gap: 24px; }
+    }
+    @media (max-width: 600px) {
+      .founder-card { padding: 26px 20px; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>About Joel Apex Solutions</h1>
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Joel Apex Solutions Home">
+        <img src="../images/logo.png" alt="Joel Apex Solutions" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-name">JOEL APEX</span>
+          <span class="logo-sub">SOLUTIONS</span>
+        </span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html"         class="nav-link">HOME</a></li>
+        <li><a href="../games/index.html"   class="nav-link">GAMES</a></li>
+        <li><a href="../apps/index.html"    class="nav-link">APPS</a></li>
+        <li><a href="index.html"            class="nav-link active">ABOUT</a></li>
+        <li><a href="../contact/index.html" class="nav-link">CONTACT</a></li>
+      </ul>
+      <a href="https://play.google.com/store/apps/developer?id=Joel+Apex+Solutions"
+         class="nav-gplay" target="_blank" rel="noopener">
+        <img src="../images/google-play-badge.png" alt="Get it on Google Play" />
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <ul role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../games/index.html">Games</a></li>
+        <li><a href="../apps/index.html">Apps</a></li>
+        <li><a href="index.html" class="active">About</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+      </ul>
+      <a href="https://play.google.com/store/apps/developer?id=Joel+Apex+Solutions"
+         class="mobile-gplay" target="_blank" rel="noopener">
+        <img src="../images/google-play-badge.png" alt="Get it on Google Play" />
+      </a>
+    </div>
+  </nav>
 
-<p>Coming Soon</p>
+  <main>
 
-<script src="../js/script.js"></script>
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="ph-eyebrow">Independent Software Studio</p>
+        <h1 class="ph-title">ABOUT <span class="accent-gold">US</span></h1>
+        <p class="ph-sub">A South African software studio building mobile apps and games that people actually love to use.</p>
+      </div>
+    </section>
 
+    <!-- ═══ RECOGNITION STRIP ═══ -->
+    <div class="recognition-strip">
+      <div class="recognition-item">
+        <span class="recognition-icon">🏆</span>
+        <div>
+          <p class="recognition-label">Recipient</p>
+          <p class="recognition-value">Google DGI 2025</p>
+        </div>
+      </div>
+      <div class="recognition-item">
+        <span class="recognition-icon">📍</span>
+        <div>
+          <p class="recognition-label">Based in</p>
+          <p class="recognition-value">Johannesburg, South Africa</p>
+        </div>
+      </div>
+      <div class="recognition-item">
+        <span class="recognition-icon">📱</span>
+        <div>
+          <p class="recognition-label">Platform</p>
+          <p class="recognition-value">Android (Google Play)</p>
+        </div>
+      </div>
+      <div class="recognition-item">
+        <span class="recognition-icon">🚀</span>
+        <div>
+          <p class="recognition-label">Products</p>
+          <p class="recognition-value">4 Live Android Products</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ THE STUDIO ═══ -->
+    <section class="detail-section">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Left: text -->
+          <div class="about-text">
+            <div class="about-badge">
+              <span class="about-badge-dot"></span>
+              Our Story
+            </div>
+            <p class="about-lead">
+              Joel Apex Solutions was built on a simple belief: software should solve real problems and create genuine joy.
+            </p>
+            <p class="about-body">
+              Founded and operated by Gerard Joel, Joel Apex Solutions is an independent Android software studio registered in South Africa. From a background in financial services project management, Gerard taught himself Android development and turned that discipline into a growing catalogue of mobile apps and games — each one designed with the same attention to detail he brings to professional project delivery.
+            </p>
+            <p class="about-body">
+              The studio's work spans two categories: practical utility apps like Home Buyers Guide SA — a product that empowers South Africans to make one of the most important financial decisions of their lives with confidence — and entertaining games like Truth or Dare Couples, 30 Seconds, and Lotto Genius that bring people together.
+            </p>
+            <p class="about-body">
+              In 2025, Joel Apex Solutions was selected as a recipient of the Google Digital Growth Initiative (DGI), recognising the quality and potential of the studio's products in the South African market.
+            </p>
+          </div>
+
+          <!-- Right: founder card -->
+          <div class="founder-card reveal">
+            <div class="founder-top">
+              <div class="founder-avatar">GJ</div>
+              <div>
+                <p class="founder-name">Gerard Joel</p>
+                <p class="founder-role">Founder &amp; Developer</p>
+              </div>
+            </div>
+            <p class="founder-bio">
+              Project Manager by profession, self-taught Android developer by passion. Gerard brings a unique combination of structured delivery thinking and creative product development to every app and game he builds. He manages every aspect of Joel Apex Solutions — from code to marketing to investor relations.
+            </p>
+            <div class="founder-skills">
+              <span class="skill-tag">Android Development</span>
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">HTML / CSS / JS</span>
+              <span class="skill-tag">Project Management</span>
+              <span class="skill-tag">Product Design</span>
+              <span class="skill-tag">Johannesburg, SA</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ OUR VALUES ═══ -->
+    <section class="detail-section" style="padding-block-start: 0;">
+      <div class="container">
+        <p class="detail-section-title" style="color: var(--clr-teal);">WHAT DRIVES US</p>
+        <div class="values-grid">
+
+          <div class="value-card reveal">
+            <span class="value-num value-num--teal">01</span>
+            <p class="value-title">Quality over quantity</p>
+            <p class="value-desc">Every product ships when it's ready — not when it's rushed. Each app and game reflects hours of refinement, testing and intentional design decisions.</p>
+          </div>
+
+          <div class="value-card reveal">
+            <span class="value-num value-num--purple">02</span>
+            <p class="value-title">Built for real people</p>
+            <p class="value-desc">Our apps are designed for everyone — first-time home buyers, families playing party games, or anyone who wants a smarter lottery experience. Accessibility and ease of use are non-negotiable.</p>
+          </div>
+
+          <div class="value-card reveal">
+            <span class="value-num value-num--gold">03</span>
+            <p class="value-title">African innovation</p>
+            <p class="value-desc">Joel Apex Solutions is proud to build from South Africa, for the world. Local context matters — and our products are shaped by real needs on the African continent and beyond.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="detail-cta">
+      <div class="container">
+        <h2 class="detail-cta-title">Want to work together?</h2>
+        <p class="detail-cta-sub">Whether you're an investor, partner, or just a fan of the work — we'd love to hear from you.</p>
+        <div class="detail-cta-actions">
+          <a href="../contact/index.html" class="btn btn--teal">GET IN TOUCH</a>
+          <a href="../games/index.html" class="cta-back-link">Explore our games →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo nav-logo" aria-label="Joel Apex Solutions">
+        <img src="../images/logo.png" alt="Joel Apex Solutions" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-name">JOEL APEX</span>
+          <span class="logo-sub">SOLUTIONS</span>
+        </span>
+      </a>
+      <p class="footer-copy">&copy; 2025 Joel Apex Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
 </body>
-
 </html>
