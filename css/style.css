@@ -879,21 +879,35 @@ button { cursor: pointer; border: none; background: none; }
 /* ═══════════════════════════════════════════════════════
    SCROLL REVEAL ANIMATION
 ═══════════════════════════════════════════════════════ */
+/* Visible by default — JS adds .pre-anim class to enable animation */
 .reveal {
-  opacity: 0;
-  transform: translateY(28px);
   transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
 }
-.reveal.visible {
+.reveal.pre-anim {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.reveal.pre-anim.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Stagger children in grids */
-.games-row   .reveal:nth-child(2),
-.features-row .reveal:nth-child(2) { transition-delay: 0.1s; }
-.games-row   .reveal:nth-child(3),
-.features-row .reveal:nth-child(3) { transition-delay: 0.2s; }
+/* Stagger for grid children */
+.games-row   .reveal.pre-anim:nth-child(2),
+.features-row .reveal.pre-anim:nth-child(2) { transition-delay: 0.12s; }
+.games-row   .reveal.pre-anim:nth-child(3),
+.features-row .reveal.pre-anim:nth-child(3) { transition-delay: 0.22s; }
+
+/* ─── Logo PNG image ─── */
+.logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.footer-logo .logo-img {
+  height: 36px;
+}
 
 
 /* ═══════════════════════════════════════════════════════
